@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Categories{% endblock %}
+
+{% block numOfWatchlist %} {{ numOfWatchlist }} {% endblock %}
+
+{% block body %}
+
+    <h2 class="m-3">Categories:</h2>
+
+    <div class="list-group">
+        <a href="{% url 'categoryListing' "allCategories" %}" value="allCategories" class="list-group-item list-group-item-action active" aria-current="true">
+          All Categories
+        </a>
+        {% for category in allCategories %}
+            <a href="{% url 'categoryListing' category.categoryName %}" class="list-group-item list-group-item-action">
+                {{ category.categoryName }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
