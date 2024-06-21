@@ -145,7 +145,7 @@ def listing(request, id):
         return render(request, "auctions/listing.html", {
             "listing": listingData,
             "isInWatchlist": isInWatchlist,
-            "allComments": Comments.objects.all(),
+            "allComments": Comments.objects.filter(listing=listingData),
             "isOwner": isOwner,
             "numOfWatchlist": numOfWatchlist,
         })
@@ -204,7 +204,7 @@ def addBid(request, id):
             "listing": listingData,
             "isInWatchlist": isInWatchlist,
             "isOwner": isOwner,
-            "allComments": Comments.objects.all(),
+            "allComments": Comments.objects.filter(listing=listingData),
             "message": "Congratulations, Bid is submitted!",
             "updation": True,
             "numOfWatchlist": numOfWatchlist,
@@ -214,7 +214,7 @@ def addBid(request, id):
         return render(request, "auctions/listing.html", {
             "listing": listingData,
             "isInWatchlist": isInWatchlist,
-            "allComments": Comments.objects.all(),
+            "allComments": Comments.objects.filter(listing=listingData),
             "isOwner": isOwner,
             "message": "Bid is not submitted!, Enter bid more than its actual price",
             "updation": False,
@@ -232,7 +232,7 @@ def closeBid(request, id):
     return render(request, "auctions/listing.html", {
             "listing": listingData,
             "isInWatchlist": isInWatchlist,
-            "allComments": Comments.objects.all(),
+            "allComments": Comments.objects.filter(listing=listingData),
             "isOwner": isOwner,
             "message": "Congratulations, Your Bid is Closed.",
             "updation": True,

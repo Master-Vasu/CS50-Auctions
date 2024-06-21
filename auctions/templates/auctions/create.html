@@ -5,28 +5,28 @@
 {% block numOfWatchlist %} {{ numOfWatchlist }} {% endblock %}
 
 {% block body %}
-    <h2>Active Listings</h2>
+    <h2 class="m-3 text-center">Create Listings</h2>
 
     <div class="container fluid px-5">
         <form class="row g-3 " action="{% url 'create' %}" method="POST">
             {% csrf_token %}
-            <div class="col-md-6">
+            <div class="col-md-12 p-2">
               <label for="title" class="form-label">Title:</label>
               <input type="text" class="form-control" id="title" name="title">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 p-2">
                 <label for="desc" class="form-label">Description:</label>
                 <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
             </div>
-            <div class="col-12">
+            <div class="col-12 p-2">
               <label for="imageUrl" class="form-label">Image URL:</label>
               <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 p-2">
               <label for="price" class="form-label">Price</label>
               <input type="number" min="0" class="form-control" id="price" name="price" placeholder="$0.00">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6 p-2">
               <label for="category" class="form-label">Category</label>
               <select id="category" class="form-select" name="category">
                 {% for category in allCategories %}
@@ -34,8 +34,8 @@
                 {% endfor %}
               </select>
             </div>
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Create Bid</button>
+            <div class="col-12 p-2">
+              <button type="submit" class="btn btn-success">Create Listing</button>
             </div>
           </form>
     </div>
